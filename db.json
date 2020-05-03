@@ -1,0 +1,139 @@
+{
+    "get-pool-services": [
+        {
+            "request" : {
+                "genref":"0"
+            },
+            "response": [
+                {
+                    "serviceId": 1001,
+                    "title": "ماساژ کف نیم ساعته",
+                    "description":"ماساژ کف در حمام ترکی آرامان",
+                    "duration":"00:30",
+                    "price": {
+                        "member":100000,
+                        "nonmember":80000
+                    },
+                    "notes":""
+                },
+                {
+                    "serviceId": 1002,
+                    "title": "ماساژ کف یک ساعته",
+                    "description":"ماساژ کف در حمام ترکی آرامان",
+                    "duration":"01:00",
+                    "price": {
+                        "member":180000,
+                        "nonmember":160000
+                    },
+                    "notes":""
+                },
+                {
+                    "serviceId": 1003,
+                    "title": "ماساژ VIP",
+                    "description":"ماساژ با روغن‌های گیاهی در اسپای آرامان",
+                    "duration":"01:00",
+                    "price": {
+                        "member":250000,
+                        "nonmember":220000
+                    },
+                    "notes":"برای افراد دارای ناراحتی قبلی توصیه نمی‌شود"
+                }
+            ]
+        }
+    ],
+    "get-service-providers": [
+        {
+            "request" : {
+                "serviceId":1001,
+                "genref":"0"
+            },
+            "response": [
+                {
+                    "serviceProviderId": 51001,
+                    "fname": "کامران",
+                    "lname":"خوش‌ماساژ"
+                },
+                {
+                    "serviceProviderId": 51002,
+                    "fname": "فرامرز",
+                    "lname":"دلاک"
+                },
+                {
+                    "serviceProviderId": 51003,
+                    "fname": "بهنام",
+                    "lname":"مسوریان"
+                }
+            ]
+        }
+    ],
+    "get-available-pool-services": [
+        {
+            "request_1" : {
+                "sdate":"1399/02/20",
+                "edate":"1399/02/21",
+                "gender":"1",
+                "serviceId":1002,
+                "serviceProviderId":51002
+            },
+            "response_1": [
+                {
+                    "date": "1399/02/20",
+                    "stime": "16:00",
+                    "etime": "17:00",
+                    "location":"اسپای آرامان",
+                    "provider":51002,
+                    "notes":""
+                },
+                {
+                    "date": "1399/02/20",
+                    "stime": "17:30",
+                    "etime": "18:30",
+                    "location":"اتاق ماساژ استخر آرامان",
+                    "provider":51002,
+                    "notes":""
+                },
+                {
+                    "date": "1399/02/21",
+                    "stime": "21:30",
+                    "etime": "22:30",
+                    "location":"اتاق ماساژ استخر آرامان",
+                    "provider":51002,
+                    "notes":""
+                }
+            ],
+            "request_2" : {
+                "sdate":"1399/02/22",
+                "edate":"1399/02/22",
+                "gender":"2",
+                "serviceId":1001,
+                "serviceProviderId":0
+            },
+            "response_2": [
+                {
+                    "date": "1399/02/22",
+                    "stime": "16:30",
+                    "etime": "17:00",
+                    "location":"اسپای آرامان",
+                    "provider":0,
+                    "notes":""
+                },
+                {
+                    "date": "1399/02/22",
+                    "stime": "18:00",
+                    "etime": "19:30",
+                    "location":"اتاق ماساژ استخر آرامان",
+                    "provider":0,
+                    "notes":""
+                },
+                {
+                    "date": "1399/02/21",
+                    "stime": "21:30",
+                    "etime": "22:30",
+                    "location":"اتاق ماساژ استخر آرامان",
+                    "provider":0,
+                    "notes":""
+                }
+            ]
+        }
+    ]
+}
