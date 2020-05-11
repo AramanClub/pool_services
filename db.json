@@ -10,10 +10,8 @@
                     "title": "ماساژ کف نیم ساعته",
                     "description":"ماساژ کف در حمام ترکی آرامان",
                     "duration":"00:30",
-                    "price": {
-                        "member":100000,
-                        "nonmember":80000
-                    },
+                    "price":100000,
+                    "memberDiscountPercent":10,
                     "notes":""
                 },
                 {
@@ -21,10 +19,8 @@
                     "title": "ماساژ کف یک ساعته",
                     "description":"ماساژ کف در حمام ترکی آرامان",
                     "duration":"01:00",
-                    "price": {
-                        "member":180000,
-                        "nonmember":160000
-                    },
+                    "price":180000,
+                    "memberDiscountPercent":10,
                     "notes":""
                 },
                 {
@@ -32,10 +28,8 @@
                     "title": "ماساژ VIP",
                     "description":"ماساژ با روغن‌های گیاهی در اسپای آرامان",
                     "duration":"01:00",
-                    "price": {
-                        "member":250000,
-                        "nonmember":220000
-                    },
+                    "price":250000,
+                    "memberDiscountPercent":10,
                     "notes":"برای افراد دارای ناراحتی قبلی توصیه نمی‌شود"
                 }
             ]
@@ -134,6 +128,122 @@
                     "notes":""
                 }
             ]
+        }
+    ],
+    "request-pool-service": [
+        {
+            "request": {
+                "services":[
+                    {
+                        "memberId":0,
+                        "fname":"جمشید",
+                        "lname":"تبریزی",
+                        "email":"jamshid@example.com",
+                        "phone":"091212345678",
+                        "type":"adult",
+                        "date":"399/02/20",
+                        "stime":"16:00",
+                        "etime":"17:00",
+                        "serviceId":1002,
+                        "serviceProviderId":51002,
+                        "location":"اسپای آرامان",
+                        "effectivePrice":180000,
+                        "notes":""
+                    },
+                    {
+                        "fname":"مهشید",
+                        "lname":"کابلی",
+                        "email":"mahshid@example.com",
+                        "phone":"09128765432",
+                        "date":"27-01-1399",
+                        "type":"adult",
+                        "sessionId":2,
+                        "notes":""
+                    },
+                    {
+                        "fname":"مهتاب",
+                        "lname":"جمشیدی",
+                        "email":"mahshid@example.com",
+                        "phone":"09128765432",
+                        "date":"27-01-1399",
+                        "type":"child",
+                        "sessionId":2,
+                        "notes":""
+                    }
+                ],
+                "totalbalance":310000
+            },
+            "response_success": {
+                "reservationId":"1234567",
+                "totalbalance":310000,
+                "__comment":"if response balance is different than request's, client should abort the transaction. This should hopefully never happen."
+            },
+            "response_failed_1": {
+                "reservationId":"error",
+                "errors" : [
+                    {
+                        "sessionId": 2,
+                        "errorcode":2,
+                        "errormsg":"سانس گنجایش ندارد"
+                    }
+                ],
+                "__comment":"note that even if only one of many tickets has 'errors' and cannot be booked, the entire request is denied."
+            }
+        }
+    ],
+    "confirm-pool-tickets" : [
+        {
+            "request": {
+                "reservationId":"1234567",
+                "transactionId":"99123456789",
+                "paid":"250000"
+            },
+            "response_success": {
+                "tickets": [
+                    {
+                        "id": 2203456,
+                        "fname": "جمشید",
+                        "lname": "تبریزی",
+                        "email": "jamshid@example.com",
+                        "phone": "091212345678",
+                        "date": "25-01-1399",
+                        "sessionId": 1,
+                        "type": "adult",
+                        "price":140000,
+                        "notes": ""
+                    },
+                    {
+                        "id": 2203457,
+                        "fname": "مهشید",
+                        "lname": "کابلی",
+                        "email": "mahshid@example.com",
+                        "phone": "09128765432",
+                        "date": "27-01-1399",
+                        "sessionId": 2,
+                        "type": "adult",
+                        "price":110000,
+                        "notes": ""
+                    },
+                    {
+                        "id": 2203459,
+                        "fname": "مهتاب",
+                        "lname": "جمشیدی",
+                        "email": "mahshid@example.com",
+                        "phone": "09128765432",
+                        "date": "27-01-1399",
+                        "sessionId": 2,
+                        "type": "child",
+                        "price":60000,
+                        "notes": ""
+                    }
+                ]
+            },
+            "response_failed": {
+                "errorcode":1,
+                "errormsg":"خطا در صادر کردن بلیت ها",
+                "balance":-250000,
+                "__comment":"client should check for error code and return customer's remaining balance. This should hopefully never happen."
+            }
         }
     ]
 }
