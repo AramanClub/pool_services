@@ -108,7 +108,7 @@
                     "stime": "16:30",
                     "etime": "17:00",
                     "location":"اسپای آرامان",
-                    "provider":0,
+                    "serviceProviderId":0,
                     "notes":""
                 },
                 {
@@ -116,7 +116,7 @@
                     "stime": "18:00",
                     "etime": "19:30",
                     "location":"اتاق ماساژ استخر آرامان",
-                    "provider":0,
+                    "serviceProviderId":0,
                     "notes":""
                 },
                 {
@@ -124,7 +124,7 @@
                     "stime": "21:30",
                     "etime": "22:30",
                     "location":"اتاق ماساژ استخر آرامان",
-                    "provider":0,
+                    "serviceProviderId":0,
                     "notes":""
                 }
             ]
